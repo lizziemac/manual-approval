@@ -190,7 +190,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	failOnDenial := os.Getenv(envVarFailOnDenial) == "true"
+	failOnDenial := false
+	if os.Getenv(envVarFailOnDenial) == "true" {
+		failOnDenial = true
+	}
 
 	issueTitle := os.Getenv(envVarIssueTitle)
 	issueBody := os.Getenv(envVarIssueBody)
