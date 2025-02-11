@@ -106,11 +106,7 @@ func newCommentLoopChannel(ctx context.Context, apprv *approvalEnvironment, clie
 					channel <- 1
 					close(channel)
 				}
-				if !apprv.failOnDenial {
-					channel <- 0
-				} else {
-					channel <- 1
-				}
+				channel <- 1
 				close(channel)
 			}
 
